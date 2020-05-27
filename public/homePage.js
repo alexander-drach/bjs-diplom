@@ -94,7 +94,7 @@ favorite.addUserCallback = function(data) {
                 favorite.fillTable(response.data);
                 favorite.setMessage(response.success, 'пользователь успешно добавлен');
             }else {
-                favorite.setMessage(!response.success, 'не получилось добавить пользователя');
+                favorite.setMessage(!response.success, response.data);
             }
         })
 }
@@ -107,7 +107,7 @@ favorite.removeUserCallback = function (data) {
                 favorite.fillTable(response.data);
                 favorite.setMessage(response.success, 'пользователь удален');
             }else {
-                favorite.setMessage(!response.success, 'удаление пользователя не получилось');
+                favorite.setMessage(!response.success, response.data);
             }
         })
 }
