@@ -42,9 +42,9 @@ money.addMoneyCallback = function (data) {
         response => {
             if (response.success) {
                 ProfileWidget.showProfile(response.data);
-                money.setMessage(response.data);
+                money.setMessage(response.success, 'баланс успешно пополнен');
             }else {
-                money.setMessage(response.data);
+                money.setMessage(!response.success, 'не получилось пополнить баланс');
             }
         }
     )
@@ -55,9 +55,9 @@ money.conversionMoneyCallback = function (data) {
         response => {
             if (response.success) {
                 ProfileWidget.showProfile(response.data);
-                money.setMessage(response.data);
+                money.setMessage(response.success, 'конвертация успешно произведена');
             }else {
-                money.setMessage(response.data);
+                money.setMessage(!response.success, 'конвертация не получилась');
             }
         })
 }
@@ -67,9 +67,9 @@ money.sendMoneyCallback = function (data) {
         response => {
             if (response.success) {
                 ProfileWidget.showProfile(response.data);
-                money.setMessage(response.data);
+                money.setMessage(response.success, 'перевод успешно выполнен');
             }else {
-                money.setMessage(response.data);
+                money.setMessage(!response.success, 'перевод не выполнен');
             }
         })
 }
@@ -92,9 +92,9 @@ favorite.addUserCallback = function(data) {
             if (response.success) {
                 favorite.clearTable(response.data);
                 favorite.fillTable(response.data);
-                favorite.setMessage(response.data);
+                favorite.setMessage(response.success, 'пользователь успешно добавлен');
             }else {
-                favorite.setMessage(response.data);
+                favorite.setMessage(!response.success, 'не получилось добавить пользователя');
             }
         })
 }
@@ -105,9 +105,9 @@ favorite.removeUserCallback = function (data) {
             if (response.success) {
                 favorite.clearTable(response.data);
                 favorite.fillTable(response.data);
-                favorite.setMessage(response.data);
+                favorite.setMessage(response.success, 'пользователь удален');
             }else {
-                favorite.setMessage(response.data);
+                favorite.setMessage(!response.success, 'удаление пользователя не получилось');
             }
         })
 }
