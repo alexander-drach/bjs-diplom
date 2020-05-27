@@ -44,7 +44,7 @@ money.addMoneyCallback = function (data) {
                 ProfileWidget.showProfile(response.data);
                 money.setMessage(response.success, 'баланс успешно пополнен');
             }else {
-                money.setMessage(!response.success, 'не получилось пополнить баланс');
+                money.setMessage(response.success, response.data);
             }
         }
     )
@@ -57,7 +57,7 @@ money.conversionMoneyCallback = function (data) {
                 ProfileWidget.showProfile(response.data);
                 money.setMessage(response.success, 'конвертация успешно произведена');
             }else {
-                money.setMessage(!response.success, 'конвертация не получилась');
+                money.setMessage(response.success, response.data);
             }
         })
 }
@@ -69,7 +69,7 @@ money.sendMoneyCallback = function (data) {
                 ProfileWidget.showProfile(response.data);
                 money.setMessage(response.success, 'перевод успешно выполнен');
             }else {
-                money.setMessage(!response.success, 'перевод не выполнен');
+                money.setMessage(response.success, response.data);
             }
         })
 }
